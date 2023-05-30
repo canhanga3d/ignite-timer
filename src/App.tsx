@@ -7,11 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 
 export function App() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ThemeProvider theme={defaultTheme}>
         <Router />
         <GlobalStyle />
-      </BrowserRouter>
-    </ThemeProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
