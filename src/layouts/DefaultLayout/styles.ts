@@ -9,8 +9,13 @@ export const LayoutContainer = styled.div`
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  @media screen and(min-width:600px) {
+  @media screen and (min-width: 600px) {
     height: calc(100vh - 16rem);
     margin: 8rem auto;
+  }
+  @media screen and (max-width: 600px) and (orientation: landscape){
+    height: calc(100vh + 26rem);
+    margin: 5rem auto;
+    background-color: white;
   }
 `;

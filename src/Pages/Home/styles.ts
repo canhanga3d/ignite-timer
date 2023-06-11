@@ -14,7 +14,6 @@ export const HomeContainer = styled.main`
   }
 `;
 export const FormContainer = styled.div`
-  margin-top: 2rem;
   color: ${(props) => props.theme['gray-100']};
   font-size: 1.8rem;
   font-weight: bold;
