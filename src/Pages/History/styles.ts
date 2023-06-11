@@ -17,7 +17,7 @@ export const HistoryContainer = styled.main`
 `;
 export const HistoryList = styled.div`
   width: 100%;
- height: 50vh;
+  height: 60vh;
   overflow: auto;
   margin-top: 3.2rem;
   table {
@@ -60,11 +60,11 @@ const STATUS_COLORS = {
   yellow: 'yellow-500',
   green: 'green-500',
   red: 'red-500',
-} as const ;
+} as const;
 
 interface StatusProps {
   statusColor: keyof typeof STATUS_COLORS;
-} 
+}
 export const Status = styled.span<StatusProps>`
   display: flex;
   align-items: center;
@@ -74,6 +74,7 @@ export const Status = styled.span<StatusProps>`
     width: 0.8rem;
     height: 0.8rem;
     border-radius: 9999px;
-    background-color: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
+    background-color: ${(props) =>
+      props.theme[STATUS_COLORS[props.statusColor]]};
   }
 `;
