@@ -13,9 +13,13 @@ export const LayoutContainer = styled.div`
     height: calc(100vh - 16rem);
     margin: 8rem auto;
   }
-  @media screen and (max-width: 600px) and (orientation: landscape){
-    height: calc(100vh + 26rem);
+  @media screen and (min-height: 280px) and (max-height: 455px) {
+    height: calc(100vh + 20rem);
     margin: 5rem auto;
-    background-color: white;
+  }
+
+  @media screen and (min-height: 456px) and (max-height: 680px) {
+    height: calc(100vh + 3rem);
+    margin: 5rem auto;
   }
 `;
