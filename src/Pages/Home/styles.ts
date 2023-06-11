@@ -23,7 +23,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   gap: 0.8rem;
-  @media screen and (min-width: 670px) {
+  @media screen and (min-width: 700px) {
     flex-direction: row;
   }
 `;
@@ -58,7 +58,6 @@ export const TaskInput = styled(BaseInput)`
 export const MinutesAmountInput = styled(BaseInput)`
   width: 6.5rem;
 `;
-
 export const CountdownContainer = styled.div`
   color: ${(props) => props.theme['gray-100']};
   font-family: 'Roboto Mono', monospace;
@@ -74,7 +73,7 @@ export const CountdownContainer = styled.div`
     padding: 0.5rem 0.1rem;
   }
 
-  @media screen and (min-width: 670px) {
+  @media screen and (min-width: 700px) {
     font-size: 16rem;
     line-height: 12.8rem;
     gap: 1.6rem;
@@ -91,7 +90,7 @@ export const Separator = styled.div`
   display: flex;
   justify-content: center;
 
-  @media screen and (min-width: 670px) {
+  @media screen and (min-width: 700px) {
     width: 6.4rem;
     padding: 3.2rem 0;
   }
@@ -118,7 +117,7 @@ export const StartCountdownButton = styled.button`
     opacity: 0.5;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1000px) {
     background: transparent;
     border: 1px solid ${(props) => props.theme['green-500']};
     color: ${(props) => props.theme['green-500']};
