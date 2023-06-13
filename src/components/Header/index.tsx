@@ -10,8 +10,8 @@ export const Header = () => {
       <nav>
         <NavLink
           to="/"
-          title="timer"
-          aria-label="Link para ir para a pagina principal"
+          title="Link para ir para a pagina principal"
+          aria-label="Link para ir até a pagina principal"
         >
           <Timer
             size={24}
@@ -21,8 +21,8 @@ export const Header = () => {
         </NavLink>
         <NavLink
           to="/history"
-          title="histórico"
-          aria-label="link para ir para a pagina de histórico"
+          title="link para ir até a pagina de histórico"
+          aria-label="link para ir até a pagina de histórico"
         >
           <Scroll
             size={24}
