@@ -1,3 +1,6 @@
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as zod from 'zod';
 import { Play } from '@phosphor-icons/react';
 import {
   CountdownContainer,
@@ -9,18 +12,38 @@ import {
   TaskInput,
 } from './styles';
 
+const newCycleFormValidationSchema = zod.object({
+  task: zod.string().min(3, 'Informe a tarefa com mais de 3 caracteres'),
+  minutesAmount: zod
+    .number()
+    .min(5, 'O ciclo precisa ser no mínimo de 5 minutos')
+    .max(60, 'O ciclo precisa ser no máximo 60 minutos'),
+});
+
 export const Home = () => {
+  const { register, handleSubmit, watch, formState } = useForm({
+    resolver: zodResolver(newCycleFormValidationSchema),
+  });
+  const handleCreateNewCycle = (data: any) => {
+    console.log(data);
+  };
+
+  console.log(formState.errors);
+  const task = watch('task');
+  const minutesAmount = watch('minutesAmount');
+  const isSubmitDisabled = !(task?.length >= 3 && minutesAmount >= 5);
+
   return (
     <HomeContainer>
-      <form action="">
+      <form onSubmit={handleSubmit(handleCreateNewCycle)} action="">
         <FormContainer>
           <label htmlFor="task">Vou trabalhar em</label>
           <TaskInput
             type="text"
-            name="task"
             id="task"
             placeholder="Dê um nome para o seu serviço"
             list="task-suggestions"
+            {...register('task')}
           />
           <datalist id="task-suggestions">
             <option value="Projeto 1" />
@@ -30,12 +53,15 @@ export const Home = () => {
           <label htmlFor="minutesAmount">durante</label>
           <MinutesAmountInput
             type="number"
-            name="timer"
-            id="minutesAmount"  
+            id="minutesAmount"
             placeholder="00"
-            step={5}
             min={5}
             max={60}
+            step={5}
+            {...register('minutesAmount', {
+              valueAsNumber: true,
+              validate: (value) => value >= 5,
+            })}
           />
           <span>minutos.</span>
         </FormContainer>
@@ -48,11 +74,8 @@ export const Home = () => {
           <span>0</span>
         </CountdownContainer>
 
-        <StartCountdownButton
-          type="submit"
-          aria-label="botão para começar a o ciclo da tarefa"
-        >
-          <Play size={24} alt="ícone de play" aria-label="ícone de play" />
+        <StartCountdownButton type="submit" disabled={isSubmitDisabled}>
+          <Play size={24} />
           Começar
         </StartCountdownButton>
       </form>

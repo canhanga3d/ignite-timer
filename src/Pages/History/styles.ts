@@ -15,9 +15,10 @@ export const HistoryContainer = styled.main`
     padding: 5.6rem;
   }
 `;
+
 export const HistoryList = styled.div`
   width: 100%;
-  height: 60vh;
+  height: 65vh;
   overflow: auto;
   margin-top: 3.2rem;
   table {
@@ -54,6 +55,9 @@ export const HistoryList = styled.div`
         padding-right: 2.4rem;
       }
     }
+  }
+  @media screen and (min-width: 700px) {
+    height: 58vh;
   }
 `;
 const STATUS_COLORS = {
